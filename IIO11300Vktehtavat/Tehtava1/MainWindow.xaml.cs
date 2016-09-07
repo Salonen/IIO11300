@@ -2,7 +2,7 @@
 * Copyright (C) JAMK/IT/Esa Salmikangas
 * This file is part of the IIO11300 course project.
 * Created: 12.1.2015
-* Authors: Esa Salmikangas
+* Authors: Esa Salmikangas, Simo Samuli Salonen
 */using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace Tehtava1
 {
@@ -36,7 +37,16 @@ namespace Tehtava1
             try
             {
                 double result;
-                result = BusinessLogicWindow.CalculatePerimeter(1, 1);
+                result = BusinessLogicWindow.CalculateArea(double.Parse(txtWidht.Text), double.Parse(txtHeight.Text));
+                txtAla.Text = result.ToString();
+
+                double result2;
+                result2 = BusinessLogicWindow.CalculatePerimeter(double.Parse(txtWidht.Text), double.Parse(txtHeight.Text));
+                txtPiiri.Text = result2.ToString();
+
+                double result3;
+                result3 = BusinessLogicWindow.CalculateKarmi(double.Parse(txtWidht.Text), double.Parse(txtHeight.Text), double.Parse(txtKarmi.Text));
+                txtKA.Text = result3.ToString();
             }
             catch (Exception ex)
             {
@@ -59,9 +69,28 @@ namespace Tehtava1
     /// <summary>
     /// CalculatePerimeter calculates the perimeter of a window
     /// </summary>
+    public static double CalculateArea(double widht, double height)
+        {
+            //throw new System.NotImplementedException();
+            return widht * height;
+        }
     public static double CalculatePerimeter(double widht, double height)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return widht * 2 + height * 2;
+        }
+    public static double CalculateKarmi(double widht, double height, double karmi)
+        {
+            double ala, sisa, tulos;
+            //double m;
+            //throw new System.NotImplementedException();
+            //m = (widht * height - ( (widht - (2 * karmi)) * (height - (2 * karmi) ) ) );
+            //return m;
+            ala = widht * height;
+            sisa = (widht - karmi - karmi) * (height - karmi - karmi);
+            tulos = ala - sisa;
+            return tulos;
+            //return 30;
         }
     }
 }

@@ -7,15 +7,32 @@
         mc:Ignorable="d"
         Title="Oy K-S Windows Ab" Height="350" Width="525" FontSize="18">
     <Grid>
-    <StackPanel Orientation="Horizontal">
-      <StackPanel Orientation="Vertical">
-        <TextBlock x:Name="tbWidht" Text="Ikkunan leveys" Height="28" Margin="10,10,10,0" />
-        <TextBox x:Name="txtWidht" Text="600" Height="28" Width="114" Margin="10,10,10,0" />
-      </StackPanel>
-      <StackPanel Orientation="Vertical">
-        <Button x:Name="btnCalculate" Content="Laske pinta-ala ja piiri" Height="32" Width="180" Click="btnCalculate_Click" Margin="10,10,10,0"/>
-        <Button x:Name="btnClose" Content="Sulje" Height="32" Width="180" Click="btnClose_Click" Margin="10,10,10,0"/>
-      </StackPanel>
-    </StackPanel>
-  </Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="-9,-10,0,10">
+            <StackPanel Orientation="Vertical">
+                <TextBlock x:Name="tbWidht" Text="Ikkunan leveys" Height="28" Margin="10,10,10,0" />
+                <TextBox x:Name="txtWidht" Text="600" Height="28" Width="114" Margin="10,10,10,0" />
+                <TextBlock x:Name="tbHeight" Height="56" TextWrapping="Wrap" Text="Ikkunan korkeus" Width="111"/>
+                <TextBox x:Name="txtHeight" Height="28" TextWrapping="Wrap" Text="700" Width="108"/>
+                <TextBlock x:Name="tbKarmi" Height="48" TextWrapping="Wrap" Text="Karmin leveys" Width="106"/>
+                <TextBox x:Name="txtKarmi" Height="25" TextWrapping="Wrap" Text="50" Width="105"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Button x:Name="btnCalculate" Content="Laske pinta-ala ja piiri" Height="32" Width="180" Click="btnCalculate_Click" Margin="10,10,10,0"/>
+                <Button x:Name="btnClose" Content="Sulje" Height="32" Width="180" Click="btnClose_Click" Margin="10,10,10,0"/>
+            </StackPanel>
+            <TextBlock x:Name="tbAla" Height="28" Margin="0,20,0,0" TextWrapping="Wrap" Text="Ikkunan ala" VerticalAlignment="Top" Width="122"/>
+            <TextBox x:Name="txtAla" Height="38" Margin="-130,55,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="94"/>
+            <TextBlock x:Name="tbPiiri" Height="31" Margin="-130,102,0,0" TextWrapping="Wrap" Text="Ikkunan piiri" VerticalAlignment="Top" Width="112"/>
+            <TextBox x:Name="txtPiiri" Height="31" Margin="-130,130,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="102"/>
+            <TextBlock x:Name="tbKA" Height="31" Margin="-130,178,0,0" TextWrapping="Wrap" Text="Karmin ala" VerticalAlignment="Top" Width="103"/>
+            <TextBox x:Name="txtKA" Height="41" Margin="-130,231,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="117"/>
+        </StackPanel>
+    </Grid>
 </Window>

@@ -1,0 +1,13 @@
+D:\Users\Simo Samuli Salonen\Source\Repos\IIO11300\IIO11300Vktehtavat\Tehtava1\bin\Debug\Tehtava1.exe.config
+D:\Users\Simo Samuli Salonen\Source\Repos\IIO11300\IIO11300Vktehtavat\Tehtava1\bin\Debug\Tehtava1.exe
+D:\Users\Simo Samuli Salonen\Source\Repos\IIO11300\IIO11300Vktehtavat\Tehtava1\bin\Debug\Tehtava1.pdb
+D:\Users\Simo Samuli Salonen\Source\Repos\IIO11300\IIO11300Vktehtavat\Tehtava1\obj\Debug\MainWindow.g.cs
+D:\Users\Simo Samuli Salonen\Source\Repos\IIO11300\IIO11300Vktehtavat\Tehtava1\obj\Debug\App.g.cs
+D:\Users\Simo Samuli Salonen\Source\Repos\IIO11300\IIO11300Vktehtavat\Tehtava1\obj\Debug\Tehtava1_MarkupCompile.cache
+D:\Users\Simo Samuli Salonen\Source\Repos\IIO11300\IIO11300Vktehtavat\Tehtava1\obj\Debug\Tehtava1_MarkupCompile.lref
+D:\Users\Simo Samuli Salonen\Source\Repos\IIO11300\IIO11300Vktehtavat\Tehtava1\obj\Debug\MainWindow.baml
+D:\Users\Simo Samuli Salonen\Source\Repos\IIO11300\IIO11300Vktehtavat\Tehtava1\obj\Debug\Tehtava1.g.resources
+D:\Users\Simo Samuli Salonen\Source\Repos\IIO11300\IIO11300Vktehtavat\Tehtava1\obj\Debug\Tehtava1.Properties.Resources.resources
+D:\Users\Simo Samuli Salonen\Source\Repos\IIO11300\IIO11300Vktehtavat\Tehtava1\obj\Debug\Tehtava1.csproj.GenerateResource.Cache
+D:\Users\Simo Samuli Salonen\Source\Repos\IIO11300\IIO11300Vktehtavat\Tehtava1\obj\Debug\Tehtava1.exe
+D:\Users\Simo Samuli Salonen\Source\Repos\IIO11300\IIO11300Vktehtavat\Tehtava1\obj\Debug\Tehtava1.pdb
