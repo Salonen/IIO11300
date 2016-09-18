@@ -25,32 +25,68 @@ namespace Tehtava2
 {
     class Lotto
     {
-        public static string Suomi(int drawns)
+        public static string Luvut(int monta, int alue, Random rnd)
         {
             //comboBox.Items.Add("Sunday");
             //comboBox.Items.Add("Monday");
-            Random rnd = new Random();
-            int numero,n;
+            //Random rnd = new Random();
+            int numero,n,m;
             //taul = new int[7];
-            int[] taul = new int[7];
+            int[] taul = new int[monta];
+            int[] taul2 = new int[alue+1];
+            int[] kaytetty = new int[7];
+
             string palautus="";
 
-            for (int m = 0; m < drawns; m++)
+            /*for (int m = 0; m < drawns; m++)
+            {*/
+            for (n = 0; n < alue+1; n++) taul2[n] = n;
+
+            /*for (n = 0; n < 7; n++)
             {
-                for (n = 0; n < 7; n++)
+                taul[n] = numero = taul2[rnd.Next(1, 40-n)];
+
+                for (m = numero; m < 39-n; m++)
                 {
-                    numero = rnd.Next(1, 39+1); // creates a number between 1 and 12
-                                              //numero = 10;
-                    taul[n] = numero;
+                    taul2[m] = taul2[m + 1];
                 }
-                for (n = 0; n < 7; n++)
+
+                //taul2[m] = taul2[m + 1];
+                if(m==(39-n)) taul2[m] = taul2[m + 1];
+
+            }*/
+
+            /*for (n = 0; n < 7; n++)
+            {
+                m=rnd.Next(1, 40);
+                kaytetty[n] = m;
+                for(numero= m;numero++<40- n; numero++)
                 {
-                    numero = rnd.Next(1, 39+1); // creates a number between 1 and 12
+                    taul2[numero] = numero;
+                }
+            }*/
+
+            for (n = 0; n < monta; n++)
+            {
+                taul[n] = numero = taul2[rnd.Next(1, alue+1-n)];
+
+                taul2[numero] = taul2[alue - n];
+            }
+
+            /*for (n = 0; n < 7; n++)
+            {
+                numero = rnd.Next(1, 39+1); // creates a number between 1 and 12
+                                          //numero = 10;
+                taul[n] = numero;
+            }*/
+            for (n = 0; n < monta; n++)
+                {
+                    //numero = rnd.Next(1, 39+1); // creates a number between 1 and 12
                                               //numero = 10;
-                    palautus += " " + numero.ToString();
+                    palautus += " " + taul[n].ToString();
                 }
                 palautus += "\n";
-            }
+//            }
 
             return palautus;
         }

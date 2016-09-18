@@ -58,23 +58,24 @@ namespace Tehtava2
            
             
             string tulos = "";
-            int drawns = int.Parse(textBox.Text);
+            int drawns = int.Parse(textBox.Text), laskuri;
+            Random rnd = new Random();
 
             try
             {
 
 
                 if (comboBox.SelectedItem == "Suomi") {
-                    tulos=Lotto.Suomi(drawns);
+                    for(laskuri=0;laskuri<drawns;laskuri++) tulos +=Lotto.Luvut(7,39, rnd);
                 }
                 else if (comboBox.SelectedItem == "VikingLotto")
                 {
-                    tulos = Lotto.Viking(drawns);
+                    for (laskuri = 0; laskuri < drawns; laskuri++) tulos += Lotto.Luvut(6,48, rnd);
                 }
 
                 else if (comboBox.SelectedItem == "EuroJackpot")
                 {
-                    tulos = Lotto.Euro(drawns);
+                    for (laskuri = 0; laskuri < drawns; laskuri++) tulos += Lotto.Luvut(5,50, rnd) + " : " + Lotto.Luvut(2,8, rnd);
                 }
                 /*switch (comboBox.SelectedItem)
                 {
