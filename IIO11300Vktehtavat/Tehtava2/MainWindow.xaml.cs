@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+//using System.Windows.Shapes.Path;
+
+using System.IO; // Muista lisätä tämä
 
 namespace Tehtava2
 {
@@ -125,6 +128,82 @@ namespace Tehtava2
                 //yield to an user that everything okay
             }
             
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //kirjoitetaan annettu teksti tiedostoon riittävän monta kertaa
+                string filename = textBox1.Text;
+                int count = 1;
+                //int.TryParse(txtCount.Text, out count);
+                /*if (!File.Exists(textBox1.Text))
+                {
+                    File.Create(textBox1.Text);
+                }*/
+
+                //new DirectoryInfo(Path.GetDirectoryName(filename)).Create();
+                //string file = @".\aa\b\file.txt";
+                //Directory.CreateDirectory(Path.GetDirectoryName(filename));
+
+                /*FileInfo fi = new FileInfo(@".\a\bb\file.txt");
+                DirectoryInfo di = new DirectoryInfo(@".\a\bb");
+                if (!di.Exists)
+                {
+                    di.Create();
+                }
+
+                if (!fi.Exists)
+                {
+                    fi.Create().Dispose();
+                }*/
+
+                FileInfo fileInfo = new FileInfo(filename);
+
+                if (!fileInfo.Exists)
+                    Directory.CreateDirectory(fileInfo.Directory.FullName);
+
+
+                //create the file ...
+
+                {
+                    using (StreamWriter sw = File.CreateText(filename))
+                    {
+                        for (int i = 1; i <= count; i++)
+                        {
+                            sw.WriteLine(textBlock2.Text);
+                        }
+                        sw.Close();
+                    }
+                    tbMessages.Text = String.Format("Kirjoitettu {0} riviä tiedostoon {1}", count, filename);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                tbMessages.Text = ex.Message;
+            }
+        }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            textBlock2.Text = null;
+            //luetaan teksitiedostoa rivi kerrallaan
+            string filename = textBox1.Text;
+            string line = null;
+            if (filename.Length > 0)
+            {
+                using (StreamReader sr = File.OpenText(filename))
+                {
+                    line = null;
+                    do
+                    {
+                        line = sr.ReadLine();
+                        textBlock2.Text += line + "\n";
+                    } while (line != null);
+                }
+            }
         }
     }
 }

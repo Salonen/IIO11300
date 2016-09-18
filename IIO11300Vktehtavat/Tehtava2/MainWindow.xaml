@@ -12,16 +12,21 @@
             <ColumnDefinition Width="112*"/>
             <ColumnDefinition Width="369*"/>
         </Grid.ColumnDefinitions>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Height="43" Margin="199,27,0,0" VerticalAlignment="Top" Width="88" SelectionChanged="comboBox_SelectionChanged" Grid.Column="2"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Height="43" Margin="86,32,0,0" VerticalAlignment="Top" Width="88" SelectionChanged="comboBox_SelectionChanged" Grid.Column="1" Grid.ColumnSpan="2"/>
         <StackPanel HorizontalAlignment="Left" Height="54" Margin="198,107,0,0" VerticalAlignment="Top" Width="89" Grid.Column="2"/>
         <Viewbox HorizontalAlignment="Left" Height="31" Margin="15.324,188,0,0" VerticalAlignment="Top" Width="73" Grid.Column="1"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="43" Margin="23,27,0,0" TextWrapping="Wrap" Text="Choose game" VerticalAlignment="Top" Width="122" Grid.ColumnSpan="2"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="42" Margin="23,75,0,0" TextWrapping="Wrap" Text="Numbers of drawns" VerticalAlignment="Top" Width="101" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="34" Margin="201,83,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="86" Grid.Column="2"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="34" Margin="88,83,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="86" Grid.Column="1" Grid.ColumnSpan="2"/>
         <Button x:Name="button" Content="Draw" HorizontalAlignment="Left" Height="39" Margin="23,122,0,0" VerticalAlignment="Top" Width="86" Click="button_Click" Grid.ColumnSpan="2"/>
-        <Button x:Name="button1" Content="Clear" HorizontalAlignment="Left" Height="39" Margin="11,122,0,0" VerticalAlignment="Top" Width="88" Click="button1_Click" Grid.Column="2"/>
-        <Button x:Name="button2" Content="Close" HorizontalAlignment="Left" Height="40" Margin="216,270,0,0" VerticalAlignment="Top" Width="105" Click="button2_Click" Grid.Column="2"/>
-        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="122" Margin="23,188,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Grid.ColumnSpan="3"/>
+        <Button x:Name="button1" Content="Clear" HorizontalAlignment="Left" Height="39" Margin="88,136,0,0" VerticalAlignment="Top" Width="88" Click="button1_Click" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button x:Name="button2" Content="Close" HorizontalAlignment="Left" Height="40" Margin="239,253,0,0" VerticalAlignment="Top" Width="105" Click="button2_Click" Grid.Column="2"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="122" Margin="23,188,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="171" Grid.ColumnSpan="3"/>
+        <TextBlock x:Name="textBlock3" Grid.Column="2" HorizontalAlignment="Left" Margin="109,37,0,0" TextWrapping="Wrap" Text="Tiedoston nimi" VerticalAlignment="Top" Height="38" Width="60"/>
+        <TextBox x:Name="textBox1" Grid.Column="2" HorizontalAlignment="Left" Height="32" Margin="198,38,0,0" TextWrapping="Wrap" Text="d:\temp\testi.txt" VerticalAlignment="Top" Width="146"/>
+        <Button x:Name="button3" Content="Kirjoita tiedostoon" Grid.Column="2" HorizontalAlignment="Left" Margin="109,91,0,0" VerticalAlignment="Top" Width="75" Click="button3_Click"/>
+        <Button x:Name="button4" Content="Lue Tiedostosta" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="212,91,0,0" VerticalAlignment="Top" Width="87" Click="button4_Click"/>
+        <TextBlock x:Name="tbMessages" Grid.Column="2" HorizontalAlignment="Left" Margin="109,136,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="97" Width="250"/>
 
     </Grid>
 </Window>
