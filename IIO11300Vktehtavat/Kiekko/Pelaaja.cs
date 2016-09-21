@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-
+//[Serializable()]
 namespace Kiekko
 {
+    [Serializable()]
     class Pelaaja
     {
         private string etunimi, sukunimi, seura;

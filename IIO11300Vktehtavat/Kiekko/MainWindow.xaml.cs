@@ -32,7 +32,7 @@ namespace Kiekko
             comboBox.Items.Add("HIFK");
             comboBox.Items.Add("HPK");
             comboBox.Items.Add("Ilves");
-            pelaajat.Add(new Pelaaja("sss", "sss", "sss", 10));
+            //pelaajat.Add(new Pelaaja("sss", "sss", "sss", 10));
             //list.Add = pelaaja;
         }
 
@@ -104,7 +104,7 @@ namespace Kiekko
             {
                 for (int n = 0; n < pelaajat.Count; n++)
                 {
-                    if (pelaajat[n].EsitysNimi != listBox.SelectedItem.ToString())
+                    if (pelaajat[n].EsitysNimi != listBox.SelectedItem.ToString() && (listBox.Items.Count > 0))
                     {
                         if (pelaajat[n].Etunimi == textBox.Text && pelaajat[n].Sukunimi == textBox1.Text) tyhja = 0;
                     }
@@ -191,6 +191,8 @@ namespace Kiekko
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
+
+
             /*string dir = @"d:\temp";
             string serializationFile = "k.bin"; // Path.Combine(dir, "k.bin");
             FileInfo fileInfo = new FileInfo(serializationFile);
@@ -234,42 +236,80 @@ namespace Kiekko
                     myStream.Close();
                 }
             }*/
+            // }
+
+
+            /*
+            private static void write()
+            {
+                List<string> list = new List<string>();
+                list.Add("ab");
+                list.Add("db");
+                Stream stream = new FileStream("D:\\Bar.dat", FileMode.Create);
+                BinaryWriter binWriter = new BinaryWriter(stream);
+                binWriter.Write(list.Count);
+                foreach (string _string in list)
+                {
+                    binWriter.Write(_string);
+                }
+                binWriter.Close();
+                stream.Close();
+            }
+
+            private static void read()
+            {
+                List<string> list = new List<string>();
+                Stream stream = new FileStream("D:\\Bar.dat", FileMode.Open);
+                BinaryReader binReader = new BinaryReader(stream);
+
+                int pos = 0;
+                int length = binReader.ReadInt32();
+                while (pos < length)
+                {
+                    list.Add(binReader.ReadString());
+                    pos++;
+                }
+                binReader.Close();
+                stream.Close();
+            }*/
+            WriteToBinaryFile<Pelaaja>(@"c:\temp\MyTest", pelaajat[0]); // 1...
+        }
+        private static void WriteToBinaryFile<T>(string filePath, T objectToWrite, bool append = false)
+        {
+            using (Stream stream = File.Open(filePath, append ? FileMode.Append : FileMode.Create))
+            {
+                var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                binaryFormatter.Serialize(stream, objectToWrite);
+            }
         }
 
-
-        /*
-        private static void write()
+        public static T ReadFromBinaryFile<T>(string filePath)
         {
-            List<string> list = new List<string>();
-            list.Add("ab");
-            list.Add("db");
-            Stream stream = new FileStream("D:\\Bar.dat", FileMode.Create);
-            BinaryWriter binWriter = new BinaryWriter(stream);
-            binWriter.Write(list.Count);
-            foreach (string _string in list)
+            using (Stream stream = File.Open(filePath, FileMode.Open))
             {
-                binWriter.Write(_string);
+                var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                return (T)binaryFormatter.Deserialize(stream);
             }
-            binWriter.Close();
-            stream.Close();
         }
 
-        private static void read()
+        private void button5_Click(object sender, RoutedEventArgs e)
         {
-            List<string> list = new List<string>();
-            Stream stream = new FileStream("D:\\Bar.dat", FileMode.Open);
-            BinaryReader binReader = new BinaryReader(stream);
+            Pelaaja pl = new Pelaaja();
 
-            int pos = 0;
-            int length = binReader.ReadInt32();
-            while (pos < length)
+            pl = ( ReadFromBinaryFile<Pelaaja> (@"c:\temp\MyTest"));
+            pelaajat.Add(pl);
+            //listBox.Items.Add(pl.Etunimi);
+            listBox.Items.Clear();
+
+            for (int n = 0; n < pelaajat.Count; n++)
             {
-                list.Add(binReader.ReadString());
-                pos++;
+                /*if (pelaajat[n].Seura == comboBox.SelectedItem)
+                {*/
+                    listBox.Items.Add(pelaajat[n].EsitysNimi);
+                //}
             }
-            binReader.Close();
-            stream.Close();
-        }*/
+            //pelaajat[1] = pl;
+        }  /// 1...
     }
 }
 

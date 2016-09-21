@@ -21,6 +21,7 @@
         <Button x:Name="button3" Content="Kirjoita pelaaja" HorizontalAlignment="Left" Height="30" Margin="193,131,0,0" VerticalAlignment="Top" Width="99" Click="button3_Click"/>
         <Button x:Name="button4" Content="Lopetus" HorizontalAlignment="Left" Height="33" Margin="193,179,0,0" VerticalAlignment="Top" Width="99" RenderTransformOrigin="0.515,1.439"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="200" Margin="326,12,0,0" VerticalAlignment="Top" Width="159" SelectionChanged="listBox_SelectionChanged"/>
+        <Button x:Name="button5" Content="Lue pelaaja" HorizontalAlignment="Left" Margin="193,230,0,0" VerticalAlignment="Top" Width="99" Height="28" Click="button5_Click"/>
 
     </Grid>
 </Window>
