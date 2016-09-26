@@ -12,9 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-//using System.Windows.Shapes.Path;
 
-using System.IO; // Muista lisätä tämä
+using System.IO; 
 
 namespace Tehtava2
 {
@@ -33,33 +32,8 @@ namespace Tehtava2
             
         }
 
-        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //Class2.joo();
-             try
-            {
-                //if (comboBox.SelectedItem == "Suomi") ;
-                /*switch (comboBox.SelectedItem)
-                {
-                    case "Suomi": break;
-                    case "VikingLotto": break;
-                }*/
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                //yield to an user that everything okay
-            }
-        }
-
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            //Class2.joo();
-           
-            
             string tulos = "";
             int drawns = int.Parse(textBox.Text), laskuri;
             Random rnd = new Random();
@@ -134,30 +108,8 @@ namespace Tehtava2
         {
             try
             {
-                //kirjoitetaan annettu teksti tiedostoon riittävän monta kertaa
                 string filename = textBox1.Text;
                 int count = 1;
-                //int.TryParse(txtCount.Text, out count);
-                /*if (!File.Exists(textBox1.Text))
-                {
-                    File.Create(textBox1.Text);
-                }*/
-
-                //new DirectoryInfo(Path.GetDirectoryName(filename)).Create();
-                //string file = @".\aa\b\file.txt";
-                //Directory.CreateDirectory(Path.GetDirectoryName(filename));
-
-                /*FileInfo fi = new FileInfo(@".\a\bb\file.txt");
-                DirectoryInfo di = new DirectoryInfo(@".\a\bb");
-                if (!di.Exists)
-                {
-                    di.Create();
-                }
-
-                if (!fi.Exists)
-                {
-                    fi.Create().Dispose();
-                }*/
 
                 FileInfo fileInfo = new FileInfo(filename);
 
@@ -184,61 +136,48 @@ namespace Tehtava2
 
                 tbMessages.Text = ex.Message;
             }
+            finally
+            {
+                //yield to an user that everything okay
+            }
         }
 
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-            textBlock2.Text = null;
-            //luetaan teksitiedostoa rivi kerrallaan
-            string filename = textBox1.Text;
-            string line = null;
-            if (filename.Length > 0)
+
+            try
             {
-                using (StreamReader sr = File.OpenText(filename))
+                textBlock2.Text = null;
+                //luetaan teksitiedostoa rivi kerrallaan
+                string filename = textBox1.Text;
+                string line = null;
+                if (filename.Length > 0)
                 {
-                    line = null;
-                    do
+                    using (StreamReader sr = File.OpenText(filename))
                     {
-                        line = sr.ReadLine();
-                        textBlock2.Text += line + "\n";
-                    } while (line != null);
+                        line = null;
+                        do
+                        {
+                            line = sr.ReadLine();
+                            textBlock2.Text += line + "\n";
+                        } while (line != null);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+
+                tbMessages.Text = ex.Message;
+            }
+            finally
+            {
+                //yield to an user that everything okay
+            }
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
-
-/*public class BusinessLogicWindow
-{
-    /// <summary>
-    /// CalculatePerimeter calculates the perimeter of a window
-    /// </summary>
-    public static void Suomi()
-    {
-        //throw new System.NotImplementedException();
-
-    }
-    public static void Viking()
-    {
-        //throw new System.NotImplementedException();
-      
-    }
-    public static void Euro()
-    {
-      
-    }
-}*/
-
-
-
-/*namespace Tehtava2
-{
-    class Class2
-    {
-        public static void joo()
-        {
-            comboBox.Items.Add("Sunday");
-            comboBox.Items.Add("Monday");
-        }
-    }
-}*/
