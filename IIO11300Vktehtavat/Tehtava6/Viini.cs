@@ -11,7 +11,7 @@ namespace Tehtava6
         private string nimi, maa;
         private int arvio;
 
-       /* public Pelaaja()
+        /*public ()
         {
 
         }

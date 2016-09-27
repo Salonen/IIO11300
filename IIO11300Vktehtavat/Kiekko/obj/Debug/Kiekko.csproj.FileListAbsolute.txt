@@ -24,3 +24,6 @@ F:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\obj\Debug\MainWindow.baml
 F:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\obj\Debug\Kiekko.g.resources
 F:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\obj\Debug\Kiekko.Properties.Resources.resources
 F:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\obj\Debug\Kiekko.csproj.GenerateResource.Cache
+G:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\bin\Debug\Kiekko.exe.config
+G:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\obj\Debug\Kiekko.exe
+G:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\obj\Debug\Kiekko.pdb
