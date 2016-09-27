@@ -18,10 +18,12 @@
         <Button x:Name="button" Content="Luo uusi pelaaja" HorizontalAlignment="Left" Height="24" Margin="193,12,0,0" VerticalAlignment="Top" Width="99" Click="button_Click"/>
         <Button x:Name="button1" Content="Talleta pelaaja" HorizontalAlignment="Left" Height="27" Margin="193,53,0,0" VerticalAlignment="Top" Width="99" Click="button1_Click"/>
         <Button x:Name="button2" Content="Poista pelaaja" HorizontalAlignment="Left" Height="25" Margin="193,92,0,0" VerticalAlignment="Top" Width="99" Click="button2_Click"/>
-        <Button x:Name="button3" Content="Kirjoita pelaaja" HorizontalAlignment="Left" Height="30" Margin="193,131,0,0" VerticalAlignment="Top" Width="99" Click="button3_Click"/>
-        <Button x:Name="button4" Content="Lopetus" HorizontalAlignment="Left" Height="33" Margin="193,179,0,0" VerticalAlignment="Top" Width="99" RenderTransformOrigin="0.515,1.439"/>
+        <Button x:Name="button3" Content="Kirjoita pelaajat bin" HorizontalAlignment="Left" Height="30" Margin="193,131,0,0" VerticalAlignment="Top" Width="99" Click="button3_Click"/>
+        <Button x:Name="button4" Content="Lopetus" HorizontalAlignment="Left" Height="33" Margin="353,244,0,0" VerticalAlignment="Top" Width="99" RenderTransformOrigin="0.515,1.439"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="200" Margin="326,12,0,0" VerticalAlignment="Top" Width="159" SelectionChanged="listBox_SelectionChanged"/>
-        <Button x:Name="button5" Content="Lue pelaaja" HorizontalAlignment="Left" Margin="193,230,0,0" VerticalAlignment="Top" Width="99" Height="28" Click="button5_Click"/>
+        <Button x:Name="button5" Content="Lue pelaajat bin" HorizontalAlignment="Left" Margin="193,175,0,0" VerticalAlignment="Top" Width="99" Height="28" Click="button5_Click"/>
+        <Button x:Name="button6" Content="Kirjoita pelaajat xml" HorizontalAlignment="Left" Margin="193,220,0,0" VerticalAlignment="Top" Width="99" Height="29" Click="button6_Click"/>
+        <Button x:Name="button7" Content="Lue pelaajat xml" HorizontalAlignment="Left" Margin="193,265,0,0" VerticalAlignment="Top" Width="99" Height="26" Click="button7_Click"/>
 
     </Grid>
 </Window>

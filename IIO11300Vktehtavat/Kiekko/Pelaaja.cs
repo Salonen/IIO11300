@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Xml.Serialization;
 
 //[Serializable()]
 namespace Kiekko
 {
     [Serializable()]
-    class Pelaaja
+    public class Pelaaja  /// PUBLIC
     {
         private string etunimi, sukunimi, seura;
         private int siirtohinta;

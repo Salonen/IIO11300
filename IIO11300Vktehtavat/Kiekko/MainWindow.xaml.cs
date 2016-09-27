@@ -15,7 +15,8 @@ using System.Windows.Shapes;
 //using System.Windows.Shapes.Path;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace Kiekko
 {
@@ -249,7 +250,62 @@ namespace Kiekko
             {
                 //yield to an user that everything okay
             }
-        }  
+        }
+
+        
+        private void button6_Click(object sender, RoutedEventArgs e)
+        {
+            //Pelaaja p = new Pelaaja();
+            //List<Pelaaja> p = new List<Pelaaja>();
+            //p = pelaajat;
+
+
+
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Pelaaja>));
+
+
+                using (FileStream stream = File.OpenWrite(@"d:\MyTestxml")) //Muista xml-kirjasto
+                {
+                    //List<Pelaaja> list = new List<Pelaaja>();
+                    serializer.Serialize(stream, pelaajat);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //yield to an user that everything okay
+            }
+
+
+        }
+
+        private void button7_Click(object sender, RoutedEventArgs e)
+        {
+         
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Pelaaja>));
+
+
+                using (FileStream stream = File.OpenRead(@"d:\MyTestxml"))
+                {
+                    /*List<Pelaaja>*/ pelaajat = (List<Pelaaja>)serializer.Deserialize(stream);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //yield to an user that everything okay
+            }
+        }
     }
 }
 
