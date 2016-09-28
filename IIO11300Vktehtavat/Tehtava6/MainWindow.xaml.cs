@@ -14,10 +14,12 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using System.Runtime.Serialization.Formatters.Binary;
-//using System.Xml.Linq;
+
 using System.Xml.Serialization;
 using System.Xml.Linq;
 using System.Xml;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace Tehtava6
 {
@@ -31,118 +33,71 @@ namespace Tehtava6
             InitializeComponent();
         }
 
+        /*private static XElement Sort(XElement element)
+        {
+            return new XElement(element.Name,
+                    from child in element.Elements()
+                    orderby child.Name.ToString()
+                    select Sort(child));
+        }*/
+
+        /*private static XDocument Sort(XDocument file)
+        {
+            return new XDocument(Sort(file.Root));
+        }*/
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            /*XmlDocument doc = new XmlDocument();
-            doc.Loadxml(@"G:\C#2\Viinit1.xml");*/
 
+            Viini joo = new Viini();
+            List<Viini> wine = new List<Viini>();
 
-            /*XmlDocument doc = new XmlDocument();
-            doc.Load("path to your file");
-            string xmlcontents = doc.InnerXml;*/
-
-            /*string xml = @"<?xml version='1.0' encoding='utf-8'?>
-                       <root>
-                       <date>12/03/2001</date>
-                       <child>
-                         <name>Aravind</name>
-                         <date>12/03/2000</date>
-                       </child>
-                       <name>AS-CII</name>
-                       </root>";*/
-             XmlDocument doc = new XmlDocument();
-             doc.Load(@"G:\C#2\Viinit1.xml");
-            //string xmlcontents = doc.InnerXml;
-
-            XmlNodeList elemList = doc.GetElementsByTagName("nimi"); // NIMIIIIIIIIIII !!!!!!!!!
-            for (int i = 0; i < elemList.Count; i++)
+            try
             {
-                listBox.Items.Add(elemList[i].InnerXml);
-            }
+                XmlDocument doc = new XmlDocument();
+                doc.Load(@"G:\C#2\Viinit1.xml");
 
-            //listBox.Items.Add(xmlcontents);
+               // List<Order> SortedList = objListOrder.OrderBy(o=>o.OrderDate).ToList();
 
-            /*xmlcontents.name = node.SelectSingleNode("name").InnerText;
-            xmlcontents.date = node.SelectSingleNode("date").InnerText;
-            xmlcontents.sub = node.SelectSingleNode("subject").InnerText;*/
+                XmlNodeList elemList =  doc.GetElementsByTagName("nimi");
+                XmlNodeList elemList2 = doc.GetElementsByTagName("arvio");
+                XmlNodeList elemList3 = doc.GetElementsByTagName("maa");
 
-            //XDocument doc = XDocument.Parse(@"G:\C#2\Viinit1.xml");
-
-            /*foreach (var nimi in doc.Descendants("nimi"))
-            {
-                listBox.Items.Add(nimi);
-            }*/
-
-            /*XmlDocument doc = new XmlDocument();
-            doc.Load("path to your file");
-            string xmlcontents = doc.InnerXml;*/
-            /*
-                        foreach (var date in doc.Descendants("name"))
-                        {
-                            Console.WriteLine(date.Value);
-                        }*/
-
-            //Console.ReadLine();
-
-
-            /*XmlDocument doc = new XmlDocument();
-            doc.Load(@"G:\C#2\Viinit1.xml");
-            XmlElement root = doc.DocumentElement;
-            XmlNodeList nodes = root.SelectNodes("//*");
-            string date;
-            string name2;
-
-            foreach (XmlNode node in nodes)
-            {
-                var dateNode = node["name"];
-                if (dateNode != null)
+                for (int i = 0; i < elemList.Count; i++)
                 {
-                    date = dateNode.InnerText;
-                    listBox.Items.Add(dateNode);
+                    //listBox.Items.Add(elemList[i].InnerXml + " : " + elemList2[i].InnerXml + " : " + elemList3[i].InnerXml);
+
+                    /*joo.Nimi = elemList[i].InnerText;
+                    joo.Maa = elemList3[i].InnerText;
+                    joo.Arvio = int.Parse(elemList2[i].InnerText);*/
+                    wine.Add(new Viini(elemList[i].InnerText,elemList3[i].InnerText,int.Parse(elemList2[i].InnerText)));
+                    //listBox.Items.Add(wine[i].Nimi + " : " + wine[i].Arvio + " : " + wine[i].Maa);
+                    
+                    //wine.Add(joo);
                 }
 
-                // etc.
-            }*/
+                List<Viini> SortedList = wine.OrderBy(o => o.Nimi).ToList();
+                //listBox.Items.Add(wine[1].Nimi + " : " + wine[1].Arvio + " : " + wine[1].Maa);
 
-            /*            foreach (XmlNode node in nodes)
-                        {
-                            date = node["date"].InnerText;
-                            name = node["name"].InnerText;
-                        }*/
+                for (int n = 0; n < wine.Count; n++)
+                {
+                    listBox.Items.Add(SortedList[n].Nimi + " : " + SortedList[n].Arvio.ToString() + " : " + SortedList[n].Maa);
+                    //listBox.Items.Add(wine[i].Nimi + " : " + wine[i].Arvio + " : " + wine[i].Maa);
+                    /*wine[i].Nimi = elemList[i].InnerText;
+                    wine[i].Maa = elemList3[i].InnerText;
+                    wine[i].Arvio = int.Parse(elemList2[i].InnerText);*/
+                }
 
-
-
-            /*XDocument document = XDocument.Load(@"G:\C#2\Viinit1.xml");
-            var wine = from i in document.Descendants("wine")
-                       select new
-                       {
-                           nimi = i.Element("nimi").Value
-                           /*Title = i.Element("Title").Value,
-                           Body = i.Element("Body").Value,
-                           LinkText = i.Element("LinkText").Value,
-                           LinkUrl = i.Element("LinkUrl").Value*/
-            /*};
- listBox.Items.Add(wine.nimi);*/
-
-
-            /*      left.Title
-             left.Body
-             left.LinkText
-             l       eft.LinkUrl*/
-
-
-            /* var userInfos = XElement.Load(@"G:\C#2\Viinit1.xml").Descendants("userInfo").Select(elt =>
-             {
-                 var line = elt.Descendants();
-                 return string.Join(",", line.Select(subElt => subElt.Value));
-             });
-             listBox.Items.Add(userInfos);*/
-            //pelaajat[n].Seura
-            /*foreach (var userInfo in userInfos)
+            }
+            catch (Exception ex)
             {
-                listBox.Items.Add(userInfo);
-                //listBox.Items.Add(textBox.Text + textBox1.Text + comboBox.Text);
-            }*/
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //yield to an user that everything okay
+            }
+
         }
     }
 }

@@ -13,6 +13,7 @@
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="19" Margin="114,51,0,0" TextWrapping="Wrap" Text="Pojoja" VerticalAlignment="Top" Width="80"/>
         <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="16" Margin="224,54,0,0" TextWrapping="Wrap" Text="Valmistettu" VerticalAlignment="Top" Width="62"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Margin="22,75,0,0" VerticalAlignment="Top" Width="285"/>
+        
 
     </Grid>
 </Window>

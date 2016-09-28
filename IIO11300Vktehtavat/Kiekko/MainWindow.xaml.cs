@@ -255,21 +255,15 @@ namespace Kiekko
         
         private void button6_Click(object sender, RoutedEventArgs e)
         {
-            //Pelaaja p = new Pelaaja();
-            //List<Pelaaja> p = new List<Pelaaja>();
-            //p = pelaajat;
-
-
-
+            
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Pelaaja>));
 
 
-                using (FileStream stream = File.OpenWrite(@"d:\MyTestxml")) //Muista xml-kirjasto
+                using (FileStream stream = File.OpenWrite(@"d:\MyTestxml"))
                 {
-                    //List<Pelaaja> list = new List<Pelaaja>();
-                    serializer.Serialize(stream, pelaajat);
+                     serializer.Serialize(stream, pelaajat);
                 }
             }
             catch (Exception ex)
@@ -294,7 +288,7 @@ namespace Kiekko
 
                 using (FileStream stream = File.OpenRead(@"d:\MyTestxml"))
                 {
-                    /*List<Pelaaja>*/ pelaajat = (List<Pelaaja>)serializer.Deserialize(stream);
+                    pelaajat = (List<Pelaaja>)serializer.Deserialize(stream);
                 }
             }
             catch (Exception ex)
