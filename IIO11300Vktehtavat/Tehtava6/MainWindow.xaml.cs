@@ -33,62 +33,57 @@ namespace Tehtava6
             InitializeComponent();
         }
 
-        /*private static XElement Sort(XElement element)
-        {
-            return new XElement(element.Name,
-                    from child in element.Elements()
-                    orderby child.Name.ToString()
-                    select Sort(child));
-        }*/
-
-        /*private static XDocument Sort(XDocument file)
-        {
-            return new XDocument(Sort(file.Root));
-        }*/
+        List<Viini> wine = new List<Viini>();
+        List<Viini> SortedList = new List<Viini>();
+        //List<string> ma3a;
+        List<string> maa = new List<string>();
+        List<string> maa2 = new List<string>();
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
 
-            Viini joo = new Viini();
-            List<Viini> wine = new List<Viini>();
-
-            try
-            {
+            /*try
+            {*/
                 XmlDocument doc = new XmlDocument();
                 doc.Load(@"G:\C#2\Viinit1.xml");
 
-               // List<Order> SortedList = objListOrder.OrderBy(o=>o.OrderDate).ToList();
-
-                XmlNodeList elemList =  doc.GetElementsByTagName("nimi");
+                XmlNodeList elemList = doc.GetElementsByTagName("nimi");
                 XmlNodeList elemList2 = doc.GetElementsByTagName("arvio");
                 XmlNodeList elemList3 = doc.GetElementsByTagName("maa");
 
+                wine.Clear();
+
                 for (int i = 0; i < elemList.Count; i++)
                 {
-                    //listBox.Items.Add(elemList[i].InnerXml + " : " + elemList2[i].InnerXml + " : " + elemList3[i].InnerXml);
+                    wine.Add(new Viini(elemList[i].InnerText, elemList3[i].InnerText, int.Parse(elemList2[i].InnerText)));
 
-                    /*joo.Nimi = elemList[i].InnerText;
-                    joo.Maa = elemList3[i].InnerText;
-                    joo.Arvio = int.Parse(elemList2[i].InnerText);*/
-                    wine.Add(new Viini(elemList[i].InnerText,elemList3[i].InnerText,int.Parse(elemList2[i].InnerText)));
-                    //listBox.Items.Add(wine[i].Nimi + " : " + wine[i].Arvio + " : " + wine[i].Maa);
-                    
-                    //wine.Add(joo);
                 }
+                SortedList.Clear();
+                SortedList = wine.OrderBy(o => o.Nimi).ToList();
 
-                List<Viini> SortedList = wine.OrderBy(o => o.Nimi).ToList();
-                //listBox.Items.Add(wine[1].Nimi + " : " + wine[1].Arvio + " : " + wine[1].Maa);
+                //comboBox.Items.Clear();
 
-                for (int n = 0; n < wine.Count; n++)
+                
+                for (int n = 0; n < SortedList.Count; n++)
                 {
                     listBox.Items.Add(SortedList[n].Nimi + " : " + SortedList[n].Arvio.ToString() + " : " + SortedList[n].Maa);
-                    //listBox.Items.Add(wine[i].Nimi + " : " + wine[i].Arvio + " : " + wine[i].Maa);
-                    /*wine[i].Nimi = elemList[i].InnerText;
-                    wine[i].Maa = elemList3[i].InnerText;
-                    wine[i].Arvio = int.Parse(elemList2[i].InnerText);*/
+                
+                
                 }
+                string joo;
+                maa.Clear();
+                for(int m = 0; m < SortedList.Count; m++)
+                {
+                joo = SortedList[m].Maa;
+                maa.Add(joo);
+                }
+                maa2 = maa.Distinct().ToList();
+            //maa.Distinct();
+            /*for (int m = 0; m < maa2.Count; m++)*/
+            comboBox.Items.Clear();
+            for (int r=0;r < maa2.Count;r++) comboBox.Items.Add(maa2[r]);
 
-            }
+            /*}
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -96,8 +91,48 @@ namespace Tehtava6
             finally
             {
                 //yield to an user that everything okay
-            }
+            }*/
+        }
 
+        /*private Boolean Check(string osa,List<string> onko)
+        {
+            for(int p = 0; p < (onko.Count); p++)
+            {
+                if (osa == onko[p]) return true;
+            }
+            return false;
+        }*/
+
+
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            /*try
+            {*/
+                listBox.Items.Clear();
+                
+
+                for (int n = 0; n < SortedList.Count; n++)
+                {
+                if (comboBox.Items.Count > 0)
+                {
+                    if (comboBox.SelectedValue.ToString() == SortedList[n].Maa.ToString())
+                    {
+                        listBox.Items.Add(SortedList[n].Nimi + " : " + SortedList[n].Arvio.ToString() + " : " + SortedList[n].Maa);
+                    }
+                }
+
+                }
+
+           /* }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //yield to an user that everything okay
+            }*/
         }
     }
 }

@@ -8,7 +8,7 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Button x:Name="button" Content="Hae viinit" HorizontalAlignment="Left" Margin="22,20,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="114,18,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="114,18,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="19" Margin="22,51,0,0" TextWrapping="Wrap" Text="Maisteltu viini" VerticalAlignment="Top" Width="75"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="19" Margin="114,51,0,0" TextWrapping="Wrap" Text="Pojoja" VerticalAlignment="Top" Width="80"/>
         <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="16" Margin="224,54,0,0" TextWrapping="Wrap" Text="Valmistettu" VerticalAlignment="Top" Width="62"/>

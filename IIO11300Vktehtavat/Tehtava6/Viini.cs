@@ -22,7 +22,7 @@ namespace Tehtava6
             this.maa = maa;
             this.arvio = arvio;
 
-            //Console.WriteLine(x);
+            
         }
 
         public string Nimi
