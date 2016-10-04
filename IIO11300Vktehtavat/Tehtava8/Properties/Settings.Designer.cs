@@ -26,5 +26,7 @@ namespace Tehtava8.Properties
                 return defaultInstance;
             }
         }
+
+        public static object VK8Customers { get; internal set; }
     }
 }

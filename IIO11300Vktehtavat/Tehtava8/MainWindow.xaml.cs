@@ -30,6 +30,7 @@ namespace Tehtava8
 using System;
 using System.Data;  //sisältää ADO;n perusluokat
 using System.Data.SqlClient; //SQL Server spesifiset luokat
+//using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,90 +47,140 @@ using System.Windows.Shapes;
 
 namespace Tehtava8
 {
-  /// <summary>
-  /// Interaction logic for MainWindow.xaml
-  /// </summary>
-  public partial class MainWindow : Window
-  {
-    public MainWindow()
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        //DataTable dt;
+        //DataView dv;
+        DataTable dt = new DataTable();
+
+        public MainWindow()
         {
+
+
             InitializeComponent();
             //textBox5.PasswordChar = '*';
             //textBox5.PasswordChar = '*';
+            //dt.Rows.Add("joooop1");
+            // textBox.Text = "kkoko";//dt.Rows.ToString();
             GetData();
 
 
         }
-    private void GetData()
-    {
-      try
-      {
-        using (SqlConnection conn = 
-          new SqlConnection(Tehtava8.Properties.Settings.(VK8Customers.V8)))
-                {                       // TOIMII ??? !!!Settings.Default.ConnectionSt
-                                        //yhteys
-                                        //dataadapter
-                                        //string sql = "Server = eight.labranet.jamk.fi; Database = Viini; User = koodari; Password = koodari13";
-                                        //string sql = "SELECT asioid, lastname, firstname, date FROM presences WHERE asioid = 'salesa'";
-                                        /*SELECT* FROM Customers;
-                                        Try it Yourself »*/
+        private void GetData()
+        {
+            try
+            {
+                using (SqlConnection conn =
+                  new SqlConnection("Server=eight.labranet.jamk.fi;Database=Viini;User=koodari;Password=koodari13"))
 
-                    string sql = "SELECT Viini WHERE User=koodari";
-          SqlDataAdapter da = new SqlDataAdapter(sql, conn);
-          DataTable dt = new DataTable();
-                    //dt. = "kissa";//       da.Fill(dt);
-
-
-
-                                  //sidotaan datatable UI-kontrolliin
-                                  //dataGrid.DataContext = dt;
-                                  /*dataGrid.DataSource(dt);*/
-                                  /*sda.Fill(dt);
-                                  dataGridView1.DataSource = dt;*/
-                    //dt.Columns.Add("First Name");
+                {
+                    string sql = "SELECT * FROM vCustomers";//"SELECT koodari, lastname, firstname FROM Viini WHERE asioid = 'koodari'";//"SELECT Viini WHERE User=koodari";
+                    SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                    dt.Clear();
+                    //dt. = "kissa";//
                     da.Fill(dt);
-                    dt.Rows.Add("joooop1");
 
-                    /*    dt = "CREATE DATABASE MyDatabase ON PRIMARY " +
-            "(NAME = MyDatabase_Data, " +
-            "FILENAME = 'C:\\MyDatabaseData.mdf', " +
-            "SIZE = 2MB, MAXSIZE = 10MB, FILEGROWTH = 10%) " +
-            "LOG ON (NAME = MyDatabase_Log, " +
-            "FILENAME = 'C:\\MyDatabaseLog.ldf', " +
-            "SIZE = 1MB, " +
-            "MAXSIZE = 5MB, " +
-            "FILEGROWTH = 10%)";
 
-    */
-                    //table.Rows.Add(25, "Indocin", "David", DateTime.Now);
+                    //textBox.Text = dt.Columns.ToString();/*"susus";// dt.ToString();//dt.Rows.ToString();*/
 
-                    //sidotaan datatable UI-kontrolliin
                     dataGrid.DataContext = dt;
-                    //koo = DBDemoxOy.GetDataSimple();
-                    //GridView1.DataSource = dt;
-                    //GridView1.DataBind();
-
-                    /*        DataTable dt = new DataTable();
-                            dt = (DataTable)Session["userdata"];*/
-//                    listBox.Items.Add(dt.ToString());//your cloumn name;
-
+                    //listBox.Items.Add( dt);
+                    //listBox.DataSource = dt;
+                    listBox.DisplayMemberPath = "Lastname";
+                    ///listBox.Items.Add(dt.Rows[0][i].ToString());
+                    ///
+                    //listBox.Items.Clear();
 
 
-                   /* < asp:TextBox ID = "TextBox1" runat = "server" Height = "31px" Width = "142px" ></ asp:TextBox >
-           
-                   < asp:Button ID = "Button1" runat = "server" OnClick = "Button1_Click" Text = "Button" />
-                  
-                          < asp:Label ID = "lblUserName" runat = "server" />
-                     
-                             < asp:GridView ID = "GridView1" runat = "server" >
-                        
-                                </ asp:GridView >*/
-                   conn.Close();
+                    /////listBox.DataContext=dt.Rows.ToString();
+
+                    /*listBox.DisplayMember = dt.Columns[0].ColumnName;
+                    listBox.ValueMember = dt.Columns[1].ColumnName;
+                    // 2. set DataSource
+                    lisbox.DataSource = dt;*/
+                    listBox.ItemsSource = dt.DefaultView;
+                    
+                    /*for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        if (listBox.SelectedItem.ToString() == dt.Rows[i][0].ToString())
+                        {
+                            textBox.Text = dt.Rows[i][0].ToString();
+                        }
+                    }*/
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //yield to an user that everything okay
+            }
+
+
+            //listBox.DisplayMemberPath = "Firstname";
+
+            /*listBox.FullRowSelect = true;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                ListViewItem item = new ListViewItem(row["id"].ToString());
+                item.SubItems.Add(row["name"].ToString());
+                listViewEx1.Items.Add(item); //Add this row to the ListView
+            }*/
+
+
+            //listBox.DataContext
+            //listBox.DataSource = dt;
+            //listBox.DisplayMember = "";
+            /*listBox1.DisplayMember = "Name";
+            /*listBox1.ValueMember = "ID";
+            conn.Close();
+
+
+
+
         }
-      }
-      catch (Exception ex)
-      {
-        MessageBox.Show(ex.Message);
-      }    }
-  }
+  /*}
+  catch (Exception ex)
+  {
+    MessageBox.Show(ex.Message);
+  }*/
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            GetData();
+        }
+
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+                string l, d;
+
+                //l = listBox[0];
+                var text = (listBox.SelectedItem as DataRowView)["Lastname"].ToString();
+                l = text;
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    d = dt.Rows[i][0].ToString();
+                    if (d == l)
+                    {
+                        /*(listBox.SelectedItem.ToString())*//*((ListBoxItem)listBox.SelectedItem).Content.ToString()*//*(string)listBox.SelectedItem == (string)dt.Rows[i][0])*/
+                                                                                                                       //{
+                        textBox.Text = l;
+                        //(dt.Rows[i][0].ToString());
+                        //i = dt.Rows.Count + 1;
+
+                    }
+                }
+            
+        }
+    }
 }
+

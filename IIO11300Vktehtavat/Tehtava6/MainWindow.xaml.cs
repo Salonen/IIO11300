@@ -42,8 +42,8 @@ namespace Tehtava6
         private void button_Click(object sender, RoutedEventArgs e)
         {
 
-            /*try
-            {*/
+            try
+            {
                 XmlDocument doc = new XmlDocument();
                 doc.Load(@"G:\C#2\Viinit1.xml");
 
@@ -83,7 +83,7 @@ namespace Tehtava6
             comboBox.Items.Clear();
             for (int r=0;r < maa2.Count;r++) comboBox.Items.Add(maa2[r]);
 
-            /*}
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -91,7 +91,7 @@ namespace Tehtava6
             finally
             {
                 //yield to an user that everything okay
-            }*/
+            }
         }
 
         /*private Boolean Check(string osa,List<string> onko)
@@ -107,8 +107,8 @@ namespace Tehtava6
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            /*try
-            {*/
+            try
+            {
                 listBox.Items.Clear();
                 
 
@@ -124,7 +124,7 @@ namespace Tehtava6
 
                 }
 
-           /* }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -132,7 +132,7 @@ namespace Tehtava6
             finally
             {
                 //yield to an user that everything okay
-            }*/
+            }
         }
     }
 }

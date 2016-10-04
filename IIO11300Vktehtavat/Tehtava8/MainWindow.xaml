@@ -7,9 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <DataGrid x:Name="dataGrid" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="58,59,0,0" VerticalAlignment="Top" Height="69" Width="102"/>
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="390,227,0,0" VerticalAlignment="Top" Height="69" Width="102"/>
         <Grid HorizontalAlignment="Left" Height="100" Margin="62,184,0,0" VerticalAlignment="Top" Width="100"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Margin="275,77,0,0" VerticalAlignment="Top" Width="100"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="245" Margin="26,51,0,0" VerticalAlignment="Top" Width="113" SelectionChanged="listBox_SelectionChanged"/>
+        <Button x:Name="button" Content="Hae asiakkaat" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Width="113" Height="25" Click="button_Click"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="190,15,0,0" TextWrapping="Wrap" Text="Etunimi" VerticalAlignment="Top" Height="20" Width="114"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="190,64,0,0" TextWrapping="Wrap" Text="Sukunimi" VerticalAlignment="Top" Height="20" Width="114" RenderTransformOrigin="0.542,2.399"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="190,111,0,0" TextWrapping="Wrap" Text="Osoite" VerticalAlignment="Top" Width="71" Height="19"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="21" Margin="192,164,0,0" TextWrapping="Wrap" Text="Kaupunki" VerticalAlignment="Top" Width="77"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="192,37,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.109,0.686"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="190,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="192,135,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="23" Margin="192,185,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
 
     </Grid>
