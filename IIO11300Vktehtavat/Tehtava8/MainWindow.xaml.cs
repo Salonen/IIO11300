@@ -77,39 +77,22 @@ namespace Tehtava8
                   new SqlConnection("Server=eight.labranet.jamk.fi;Database=Viini;User=koodari;Password=koodari13"))
 
                 {
-                    string sql = "SELECT * FROM vCustomers";//"SELECT koodari, lastname, firstname FROM Viini WHERE asioid = 'koodari'";//"SELECT Viini WHERE User=koodari";
+                    string sql = "SELECT * FROM vCustomers";
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
                     dt.Clear();
-                    //dt. = "kissa";//
+
                     da.Fill(dt);
 
 
-                    //textBox.Text = dt.Columns.ToString();/*"susus";// dt.ToString();//dt.Rows.ToString();*/
+
 
                     dataGrid.DataContext = dt;
-                    //listBox.Items.Add( dt);
-                    //listBox.DataSource = dt;
+
                     listBox.DisplayMemberPath = "Lastname";
-                    ///listBox.Items.Add(dt.Rows[0][i].ToString());
-                    ///
-                    //listBox.Items.Clear();
 
-
-                    /////listBox.DataContext=dt.Rows.ToString();
-
-                    /*listBox.DisplayMember = dt.Columns[0].ColumnName;
-                    listBox.ValueMember = dt.Columns[1].ColumnName;
-                    // 2. set DataSource
-                    lisbox.DataSource = dt;*/
                     listBox.ItemsSource = dt.DefaultView;
-                    
-                    /*for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        if (listBox.SelectedItem.ToString() == dt.Rows[i][0].ToString())
-                        {
-                            textBox.Text = dt.Rows[i][0].ToString();
-                        }
-                    }*/
+
+
                 }
             }
             catch (Exception ex)
@@ -122,34 +105,7 @@ namespace Tehtava8
             }
 
 
-            //listBox.DisplayMemberPath = "Firstname";
 
-            /*listBox.FullRowSelect = true;
-
-            foreach (DataRow row in dt.Rows)
-            {
-                ListViewItem item = new ListViewItem(row["id"].ToString());
-                item.SubItems.Add(row["name"].ToString());
-                listViewEx1.Items.Add(item); //Add this row to the ListView
-            }*/
-
-
-            //listBox.DataContext
-            //listBox.DataSource = dt;
-            //listBox.DisplayMember = "";
-            /*listBox1.DisplayMember = "Name";
-            /*listBox1.ValueMember = "ID";
-            conn.Close();
-
-
-
-
-        }
-  /*}
-  catch (Exception ex)
-  {
-    MessageBox.Show(ex.Message);
-  }*/
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -159,27 +115,37 @@ namespace Tehtava8
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
+            try
+            {
                 string l, d;
 
                 //l = listBox[0];
                 var text = (listBox.SelectedItem as DataRowView)["Lastname"].ToString();
                 l = text;
 
-                for (int i = 0; i < dt.Rows.Count; i++)
+                for (int i = 0; i < dt.Rows.Count; i++) // Kokeile // listBox.Items.Count
                 {
                     d = dt.Rows[i][0].ToString();
                     if (d == l)
                     {
-                        /*(listBox.SelectedItem.ToString())*//*((ListBoxItem)listBox.SelectedItem).Content.ToString()*//*(string)listBox.SelectedItem == (string)dt.Rows[i][0])*/
-                                                                                                                       //{
-                        textBox.Text = l;
-                        //(dt.Rows[i][0].ToString());
-                        //i = dt.Rows.Count + 1;
 
+                        textBox.Text = l;
+                        textBox1.Text = dt.Rows[i][1].ToString();
+                        textBox2.Text = dt.Rows[i][2].ToString();
+                        textBox3.Text = dt.Rows[i][3].ToString();
                     }
                 }
-            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //yield to an user that everything okay
+            }
+
         }
     }
 }
