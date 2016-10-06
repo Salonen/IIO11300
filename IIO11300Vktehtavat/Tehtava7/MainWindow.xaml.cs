@@ -82,7 +82,7 @@ namespace Tehtava7
                 if (count4 > 0) maara++;
 
                 if (jono.Length < 8 || maara <= 1) textBox.Text = "Bad";
-                
+
                 if (maara > 1)
                 {
                     if (jono.Length >= 8) textBox.Text = "Fair";
@@ -98,7 +98,7 @@ namespace Tehtava7
                     if (jono.Length >= 12 && jono.Length < 16) textBox.Text = "Moderate";
                     if (jono.Length >= 16) textBox.Text = "Good";
                 }
-             
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

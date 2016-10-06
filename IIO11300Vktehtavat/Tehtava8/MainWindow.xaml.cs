@@ -118,7 +118,7 @@ namespace Tehtava8
 
             try
             {
-                string l, d;
+                /*string l, d;
 
                 //l = listBox[0];
                 var text = (listBox.SelectedItem as DataRowView)["Lastname"].ToString();
@@ -135,7 +135,13 @@ namespace Tehtava8
                         textBox2.Text = dt.Rows[i][2].ToString();
                         textBox3.Text = dt.Rows[i][3].ToString();
                     }
-                }
+                }*/
+                int i = listBox.SelectedIndex;
+                textBox.Text = dt.Rows[i][0].ToString();
+                textBox1.Text = dt.Rows[i][1].ToString();
+                textBox2.Text = dt.Rows[i][2].ToString();
+                textBox3.Text = dt.Rows[i][3].ToString();
+
             }
             catch (Exception ex)
             {
