@@ -24,9 +24,9 @@
         <Button x:Name="button5" Content="Lue pelaajat bin" HorizontalAlignment="Left" Margin="193,175,0,0" VerticalAlignment="Top" Width="99" Height="28" Click="button5_Click"/>
         <Button x:Name="button6" Content="Kirjoita pelaajat xml" HorizontalAlignment="Left" Margin="193,220,0,0" VerticalAlignment="Top" Width="99" Height="29" Click="button6_Click"/>
         <Button x:Name="button7" Content="Lue pelaajat xml" HorizontalAlignment="Left" Margin="193,265,0,0" VerticalAlignment="Top" Width="99" Height="26" Click="button7_Click"/>
-        <Button x:Name="button8" Content="Kirjoita paikallinen" HorizontalAlignment="Left" Margin="13,178,0,0" VerticalAlignment="Top" Width="75" Click="button8_Click"/>
-        <Button x:Name="button9" Content="Lue paikallinen" HorizontalAlignment="Left" Margin="13,220,0,0" VerticalAlignment="Top" Width="75" Click="button9_Click"/>
-        <Button x:Name="button10" Content="Luo mysql" HorizontalAlignment="Left" Margin="13,269,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.042,0.685" Click="button10_Click"/>
+        <Button x:Name="button8" Content="Turha?" HorizontalAlignment="Left" Margin="13,240,0,0" VerticalAlignment="Top" Width="75" Click="button8_Click"/>
+        <Button x:Name="button9" Content="Tallenna mysql" HorizontalAlignment="Left" Margin="13,205,0,0" VerticalAlignment="Top" Width="75" Click="button9_Click"/>
+        <Button x:Name="button10" Content="Lue mysql" HorizontalAlignment="Left" Margin="13,175,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.042,0.685" Click="button10_Click"/>
         <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Margin="103,178,0,0" VerticalAlignment="Top" Height="99" Width="70"/>
 
