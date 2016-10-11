@@ -37,3 +37,9 @@ G:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\obj\Debug\MainWindow.baml
 G:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\obj\Debug\Kiekko.g.resources
 G:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\obj\Debug\Kiekko.Properties.Resources.resources
 G:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\obj\Debug\Kiekko.csproj.GenerateResource.Cache
+G:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\bin\Debug\SMLiiga.accdb
+G:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\obj\Debug\Kiekko_Content.g.cs
+G:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\bin\Debug\MySql.Data.dll
+F:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\bin\Debug\SMLiiga.accdb
+F:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\bin\Debug\MySql.Data.dll
+F:\c#2\IIO11300\IIO11300Vktehtavat\Kiekko\obj\Debug\Kiekko_Content.g.cs
