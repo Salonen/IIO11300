@@ -453,7 +453,7 @@ namespace Kiekko
             hinta INT(6) NOT NULL
             )*/
 
-            string connStr = "server=mysql.labranet.jamk.fi;user=H8482;password=yvPNbDZlov8ybiG9bsnLOh8jM0XEKoJ9";//"server=localhost;user=root;port=3306;password=mysql;"
+            string connStr = "server=mysql.labranet.jamk.fi;user=H8482;password=joo;";//"server=localhost;user=root;port=3306;password=mysql;"
                                                               // Älä laita salasanaa Githubbiin
             /*MySqlConnection conn = new MySqlConnection(connStr);
             MySqlCommand cmd;
