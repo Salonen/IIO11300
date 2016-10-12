@@ -318,7 +318,7 @@ namespace Kiekko
 
         private void button9_Click(object sender, RoutedEventArgs e)
         {
-            string cs = "server=mysql.labranet.jamk.fi;user=H8482;" + "pwd=HS1gRvSg2Kv4YCYChteSNOD7pBfSNPh1;database=H8482;"; //@
+            string cs = "server=mysql.labranet.jamk.fi;user=H8482;" + "pwd=;database=H8482;"; //@
                                                                             // salasana piilossa
             MySqlConnection conn = null;
             MySqlDataReader rdr = null;
@@ -370,7 +370,7 @@ namespace Kiekko
 
         private void button10_Click(object sender, RoutedEventArgs e)
         {
-            string cs = "server=mysql.labranet.jamk.fi;user=H8482;" + "pwd=HS1gRvSg2Kv4YCYChteSNOD7pBfSNPh1;database=H8482;"; //@
+            string cs = "server=mysql.labranet.jamk.fi;user=H8482;" + "pwd=;database=H8482;"; //@
                                                                         // salasana piilossa
             MySqlConnection conn = null;
             MySqlDataReader rdr = null;
