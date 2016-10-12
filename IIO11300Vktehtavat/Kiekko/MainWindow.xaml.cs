@@ -132,7 +132,7 @@ namespace Kiekko
 
                     for (int n = 0; n < pelaajat.Count; n++)
                     {
-                        if (pelaajat[n].Seura == comboBox.SelectedItem)
+                        if (pelaajat[n].Seura == (string)comboBox.SelectedItem) // string
                         {
                             listBox.Items.Add(pelaajat[n].EsitysNimi);
                         }
@@ -198,7 +198,7 @@ namespace Kiekko
 
                     for (int n = 0; n < pelaajat.Count; n++)
                     {
-                        if (pelaajat[n].Seura == comboBox.SelectedItem)
+                        if (pelaajat[n].Seura == (string)comboBox.SelectedItem) // string
                         {
                             listBox.Items.Add(pelaajat[n].EsitysNimi);
                         }
@@ -331,42 +331,18 @@ namespace Kiekko
                 //string stm = "INSERT INTO MyGuests (firstname, lastname, email) VALUES('John', 'Doe', 'john@example.com')";
 
                 MySqlCommand command = conn.CreateCommand();
-                command.CommandText = String.Format ("INSERT INTO pelaajat (etunimi, sukunimi, siirtohinta, seura ) VALUES('{0}', '{1}', '{2}', '{3}')", pelaajat[0].Etunimi, pelaajat[0].Sukunimi, pelaajat[0].Siirtohinta, pelaajat[0].Seura);//"INSERT INTO tb_mitarbeiter (Vorname) VALUES ('tom')";
+                command.CommandText = String.Format("DELETE FROM pelaajat");
+
                 // "The original string: '{0}'", original
                 conn.Open();
                 command.ExecuteNonQuery();
-
-
-
-//                MySqlCommand cmd = new MySqlCommand(stm, conn);
-
-               
-                //conn.Open();
-
-                /*DataTable dt2 = new DataTable();
-
-
-
-                using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
+                for (int i = 0; i < pelaajat.Count; i++)
                 {
-                    da.Fill(dt2);
+                    command.CommandText = String.Format("INSERT INTO pelaajat (etunimi, sukunimi, siirtohinta, seura ) VALUES('{0}', '{1}', '{2}', '{3}')", pelaajat[i].Etunimi, pelaajat[i].Sukunimi, pelaajat[i].Siirtohinta, pelaajat[i].Seura);//"INSERT INTO tb_mitarbeiter (Vorname) VALUES ('tom')";
+                    command.ExecuteNonQuery();
                 }
 
-                textBox.Text = dt2.Rows[0].ToString();
-
-                int i = 0;
-                string seura;
-                while (i < dt2.Rows.Count)
-                {
-                    seura = dt2.Rows[i]["seura"].ToString();
-
-                    textBox.Text = dt2.Rows[i]["etunimi"].ToString();
-                    textBox1.Text = dt2.Rows[i]["sukunimi"].ToString();
-                    textBox2.Text = dt2.Rows[i++]["siirtohinta"].ToString();
-                    comboBox.Items.Add(seura);
-                    pelaajat.Add(new Pelaaja(textBox.Text, textBox1.Text, seura, int.Parse(textBox2.Text)));
-
-                }*/
+                           
 
                 conn.Close();
 
