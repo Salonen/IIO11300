@@ -142,6 +142,8 @@ namespace Kiekko
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                MessageBox.Show("Oletko valinnut?");
+
             }
             finally
             {
@@ -316,7 +318,7 @@ namespace Kiekko
 
         private void button9_Click(object sender, RoutedEventArgs e)
         {
-            string cs = "server=mysql.labranet.jamk.fi;user=H8482;" + "pwd=;database=H8482;"; //@
+            string cs = "server=mysql.labranet.jamk.fi;user=H8482;" + "pwd=HS1gRvSg2Kv4YCYChteSNOD7pBfSNPh1;database=H8482;"; //@
                                                                             // salasana piilossa
             MySqlConnection conn = null;
             MySqlDataReader rdr = null;
@@ -324,11 +326,7 @@ namespace Kiekko
             try
             {
                 conn = new MySqlConnection(cs);
-                //conn.Open();
-
-                //string stm = "INSERT INTO pelaajat (etunimi, sukunimi, siirtohinta, seura ) VALUES(@a, @b, @10, @c)";
-
-                //string stm = "INSERT INTO MyGuests (firstname, lastname, email) VALUES('John', 'Doe', 'john@example.com')";
+                
 
                 MySqlCommand command = conn.CreateCommand();
                 command.CommandText = String.Format("DELETE FROM pelaajat");
@@ -342,7 +340,8 @@ namespace Kiekko
                     command.ExecuteNonQuery();
                 }
 
-                           
+
+                
 
                 conn.Close();
 
@@ -371,7 +370,7 @@ namespace Kiekko
 
         private void button10_Click(object sender, RoutedEventArgs e)
         {
-            string cs = "server=mysql.labranet.jamk.fi;user=H8482;" + "pwd=;database=H8482;"; //@
+            string cs = "server=mysql.labranet.jamk.fi;user=H8482;" + "pwd=HS1gRvSg2Kv4YCYChteSNOD7pBfSNPh1;database=H8482;"; //@
                                                                         // salasana piilossa
             MySqlConnection conn = null;
             MySqlDataReader rdr = null;
