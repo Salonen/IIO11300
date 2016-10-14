@@ -49,8 +49,8 @@ namespace Tehtava9
             try
             {
                 using (SqlConnection conn =
-                  new SqlConnection("Server=eight.labranet.jamk.fi;Database=viini;User=koodari;Password=koodari13"))
-
+                  new SqlConnection("Server=;Database=;User=;Password="))
+                            // Yhteystiedot poistettu
                 {
                     string sql = "SELECT * FROM customer";
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
@@ -104,7 +104,8 @@ namespace Tehtava9
                     if (!char.IsDigit(textBox3.Text[i])) num = false;
                 }
                 if (textBox.Text != "" && textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "" && num)
-                    using (var conn = new SqlConnection("Server=eight.labranet.jamk.fi;Database=viini;User=koodari;Password=koodari13"))
+                    using (var conn = new SqlConnection("Server=;Database=;User=;Password="))
+                                            // Yhteystiedot poistettu
                     using (var cmd = conn.CreateCommand())
                     {
                         conn.Open();
@@ -136,7 +137,8 @@ namespace Tehtava9
                     string lastname = textBox5.Text = dt.Rows[k][2].ToString();
 
 
-                    using (var conn = new SqlConnection("Server=eight.labranet.jamk.fi;Database=viini;User=koodari;Password=koodari13"))
+                    using (var conn = new SqlConnection("Server=;Database=;User=;Password="))
+                                            // Yhteystiedot poistettu
                     using (var cmd = conn.CreateCommand())
                     {
                         conn.Open();
