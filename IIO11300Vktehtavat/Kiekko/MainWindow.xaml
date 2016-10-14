@@ -29,6 +29,7 @@
         <Button x:Name="button10" Content="Lue mysql" HorizontalAlignment="Left" Margin="13,175,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.042,0.685" Click="button10_Click"/>
         <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Margin="103,178,0,0" VerticalAlignment="Top" Height="99" Width="70"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="23" Margin="13,286,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

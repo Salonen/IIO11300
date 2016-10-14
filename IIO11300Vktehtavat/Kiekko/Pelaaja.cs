@@ -13,21 +13,47 @@ namespace Kiekko
     public class Pelaaja  /// PUBLIC
     {
         private string etunimi, sukunimi, seura;
-        private int siirtohinta;
+        private int siirtohinta,tila,id;
 
         public Pelaaja()
         {
 
         }
 
-        public Pelaaja(string etunimi, string sukunimi, string seura, int siirtohinta)
+        public Pelaaja(string etunimi, string sukunimi, string seura, int siirtohinta,int tila,int id)
         {
             this.etunimi = etunimi;
             this.sukunimi = sukunimi;
             this.seura = seura;
-            this.siirtohinta = siirtohinta;            
+            this.siirtohinta = siirtohinta;
+            this.tila = tila;
+            this.id = id;
             
             //Console.WriteLine(x);
+        }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        }
+
+        public int Tila
+        {
+            get
+            {
+                return tila;
+            }
+            set
+            {
+                tila = value;
+            }
         }
 
         public string Etunimi

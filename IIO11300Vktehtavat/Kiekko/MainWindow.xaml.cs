@@ -60,9 +60,9 @@ namespace Kiekko
 
                     if (tyhja == 1)
                     {
-                        pelaajat.Add(new Pelaaja(textBox.Text, textBox1.Text, comboBox.SelectedItem.ToString(), int.Parse(textBox2.Text)));
+                        pelaajat.Add(new Pelaaja(textBox.Text, textBox1.Text, comboBox.SelectedItem.ToString(), int.Parse(textBox2.Text),1,1));
 
-                        listBox.Items.Add(textBox.Text + textBox1.Text + comboBox.Text);
+                        listBox.Items.Add(pelaajat[pelaajat.Count-1].EsitysNimi);
                     }
                 }
             }
@@ -86,7 +86,7 @@ namespace Kiekko
 
                 for (int n = 0; n < pelaajat.Count; n++)
                 {
-                    if (pelaajat[n].Seura == comboBox.SelectedItem.ToString())
+                    if ((pelaajat[n].Seura == comboBox.SelectedItem.ToString()) && pelaajat[n].Tila!=3 && pelaajat[n].Tila != 4)
                     {
                         listBox.Items.Add(pelaajat[n].EsitysNimi);
                     }
@@ -126,13 +126,14 @@ namespace Kiekko
                         pelaajat[mika].Etunimi = textBox.Text;
                         pelaajat[mika].Sukunimi = textBox1.Text;
                         pelaajat[mika].Siirtohinta = int.Parse(textBox2.Text);
+                        if(pelaajat[mika].Tila!=1)  pelaajat[mika].Tila = 2;
 
                     }
                     listBox.Items.Clear();
 
                     for (int n = 0; n < pelaajat.Count; n++)
                     {
-                        if (pelaajat[n].Seura == (string)comboBox.SelectedItem) // string
+                        if ((pelaajat[n].Seura == (string)comboBox.SelectedItem) && pelaajat[n].Tila != 3 && pelaajat[n].Tila != 4) // string
                         {
                             listBox.Items.Add(pelaajat[n].EsitysNimi);
                         }
@@ -191,8 +192,9 @@ namespace Kiekko
                     {
                         if (pelaajat[n].EsitysNimi == listBox.SelectedItem.ToString())
                         {
-                            pelaajat.RemoveAt(n);
-
+                            //pelaajat.RemoveAt(n);
+                            pelaajat[n].Tila = 3;
+                            textBox3.Text = pelaajat[n].Id.ToString();
                         }
                     }
 
@@ -200,7 +202,7 @@ namespace Kiekko
 
                     for (int n = 0; n < pelaajat.Count; n++)
                     {
-                        if (pelaajat[n].Seura == (string)comboBox.SelectedItem) // string
+                        if ((pelaajat[n].Seura == (string)comboBox.SelectedItem) && pelaajat[n].Tila!=3 && pelaajat[n].Tila != 4) // string
                         {
                             listBox.Items.Add(pelaajat[n].EsitysNimi);
                         }
@@ -318,7 +320,7 @@ namespace Kiekko
 
         private void button9_Click(object sender, RoutedEventArgs e)
         {
-            string cs = "server=mysql.labranet.jamk.fi;user=H8482;" + "pwd=;database=H8482;"; //@
+            string cs = "server=mysql.labranet.jamk.fi;user=H8482;" + "pwd=HS1gRvSg2Kv4YCYChteSNOD7pBfSNPh1;database=H8482;"; //@
                                                                             // salasana piilossa
             MySqlConnection conn = null;
             MySqlDataReader rdr = null;
@@ -329,15 +331,49 @@ namespace Kiekko
                 
 
                 MySqlCommand command = conn.CreateCommand();
-                command.CommandText = String.Format("DELETE FROM pelaajat");
+                //command.CommandText = String.Format("DELETE FROM pelaajat");
 
                 // "The original string: '{0}'", original
                 conn.Open();
-                command.ExecuteNonQuery();
+                //command.ExecuteNonQuery();
                 for (int i = 0; i < pelaajat.Count; i++)
                 {
-                    command.CommandText = String.Format("INSERT INTO pelaajat (etunimi, sukunimi, siirtohinta, seura ) VALUES('{0}', '{1}', '{2}', '{3}')", pelaajat[i].Etunimi, pelaajat[i].Sukunimi, pelaajat[i].Siirtohinta, pelaajat[i].Seura);//"INSERT INTO tb_mitarbeiter (Vorname) VALUES ('tom')";
-                    command.ExecuteNonQuery();
+                    if (pelaajat[i].Tila == 1)
+                    {
+                        textBox3.Text = "1";
+                        command.CommandText = String.Format("INSERT INTO pelaajat (etunimi, sukunimi, siirtohinta, seura ) VALUES('{0}', '{1}', '{2}', '{3}')", pelaajat[i].Etunimi, pelaajat[i].Sukunimi, pelaajat[i].Siirtohinta, pelaajat[i].Seura);//"INSERT INTO tb_mitarbeiter (Vorname) VALUES ('tom')";
+                        command.ExecuteNonQuery();
+                        textBox3.Text = "2";
+                    }
+                    if (pelaajat[i].Tila == 2)
+                    {
+                        textBox3.Text = "on";
+                       
+                        command.CommandText = String.Format("UPDATE pelaajat SET etunimi = '{0}' WHERE idpelaajat = '{1}'", pelaajat[i].Etunimi, pelaajat[i].Id);
+                        command.ExecuteNonQuery();
+                        command.CommandText = String.Format("UPDATE pelaajat SET seura = '{0}' WHERE idpelaajat = '{1}'", pelaajat[i].Seura, pelaajat[i].Id);
+                        command.ExecuteNonQuery();
+                        command.CommandText = String.Format("UPDATE pelaajat SET siirtohinta = '{0}' WHERE idpelaajat = '{1}'", pelaajat[i].Siirtohinta.ToString(), pelaajat[i].Id);
+                        command.ExecuteNonQuery();
+                        command.CommandText = String.Format("UPDATE pelaajat SET sukunimi = '{0}' WHERE idpelaajat = '{1}'", pelaajat[i].Sukunimi, pelaajat[i].Id);
+                        command.ExecuteNonQuery();
+                       
+                        command.ExecuteNonQuery(); //'UPDATE tutorials_tbl SET tutorial_title = "Learning JAVA" WHERE tutorial_id = 3';
+                        textBox3.Text = "updataa";
+                    }
+                    if (pelaajat[i].Tila == 3)
+                    {
+                        textBox3.Text = "alku";
+                       
+                        command.CommandText = String.Format("DELETE FROM pelaajat WHERE idpelaajat = '{0}'" , pelaajat[i].Id);//String.Format("DELETE FROM pelaajat WHERE idpela );
+                        
+
+
+
+                        command.ExecuteNonQuery(); //DELETE FROM tutorials_tbl WHERE tutorial_id=3
+                        textBox3.Text = "meneee";
+                    }
+
                 }
 
 
@@ -370,7 +406,7 @@ namespace Kiekko
 
         private void button10_Click(object sender, RoutedEventArgs e)
         {
-            string cs = "server=mysql.labranet.jamk.fi;user=H8482;" + "pwd=;database=H8482;"; //@
+            string cs = "server=mysql.labranet.jamk.fi;user=H8482;" + "pwd=HS1gRvSg2Kv4YCYChteSNOD7pBfSNPh1;database=H8482;"; //@
                                                                         // salasana piilossa
             MySqlConnection conn = null;
             MySqlDataReader rdr = null;
@@ -405,9 +441,10 @@ namespace Kiekko
 
                     textBox.Text = dt2.Rows[i]["etunimi"].ToString();
                     textBox1.Text = dt2.Rows[i]["sukunimi"].ToString();
-                    textBox2.Text = dt2.Rows[i++]["siirtohinta"].ToString();
-                    comboBox.Items.Add(seura);
-                    pelaajat.Add(new Pelaaja(textBox.Text, textBox1.Text, seura, int.Parse(textBox2.Text)));
+                    textBox2.Text = dt2.Rows[i]["siirtohinta"].ToString();
+                    textBox3.Text = dt2.Rows[i++]["idpelaajat"].ToString();
+                    //comboBox.Items.Add(seura);
+                    pelaajat.Add(new Pelaaja(textBox.Text, textBox1.Text, seura, int.Parse(textBox2.Text),0,int.Parse(textBox3.Text)));
                 
                 }
 
