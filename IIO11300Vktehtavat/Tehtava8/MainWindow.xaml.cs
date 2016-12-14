@@ -74,8 +74,8 @@ namespace Tehtava8
             try
             {
                 using (SqlConnection conn =
-                  new SqlConnection("Server=eight.labranet.jamk.fi;Database=Viini;User=koodari;Password=koodari13"))
-
+                  new SqlConnection("Server=eight.labranet.jamk.fi;Database=Viini;User=koodari;Password="))
+                                                                                            // salasana poistettu
                 {
                     string sql = "SELECT * FROM vCustomers";
                     SqlDataAdapter da = new SqlDataAdapter(sql, conn);
